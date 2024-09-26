@@ -1,0 +1,72 @@
+Em Vue.js, a função v- (também chamadas de diretivas) são usadas para vincular dados ao DOM de forma reativa. Elas são como "instruções" que o Vue entende e usa para manipular o conteúdo HTML com base no estado dos dados. Aqui estão algumas das principais funções v-:
+
+1. v-bind
+O que faz: Vincula atributos HTML a expressões do Vue. Faz com que o valor do atributo fique dinâmico, reagindo a mudanças nos dados.
+Exemplo:
+html
+Copiar código
+<img v-bind:src="imagemURL">
+<!-- Ou simplesmente :src="imagemURL" -->
+Aqui, o valor do atributo src do <img> é dinâmico e será atualizado com base na variável imagemURL.
+2. v-model
+O que faz: Cria uma ligação bidirecional entre o valor de um campo de formulário e uma propriedade de dados.
+Exemplo:
+html
+Copiar código
+<input v-model="nome">
+Qualquer alteração no campo de entrada atualizará a variável nome e vice-versa.
+3. v-if
+O que faz: Renderiza um bloco de código condicionalmente. Se a expressão for true, o elemento é renderizado. Caso contrário, é removido do DOM.
+Exemplo:
+html
+Copiar código
+<p v-if="mostrarTexto">Este texto só aparece se 'mostrarTexto' for true</p>
+4. v-else / v-else-if
+O que faz: Trabalha junto com v-if, fornecendo uma opção condicional alternativa.
+Exemplo:
+html
+Copiar código
+<p v-if="mostrarTexto">Mostrar</p>
+<p v-else>Ocultar</p>
+5. v-for
+O que faz: Faz um loop sobre uma lista ou um objeto, renderizando o conteúdo várias vezes com base nos dados.
+Exemplo:
+html
+Copiar código
+<ul>
+  <li v-for="item in lista" :key="item.id">{{ item.nome }}</li>
+</ul>
+Esse código vai renderizar uma lista <li> para cada item no array lista.
+6. v-on
+O que faz: Anexa ouvintes de eventos do DOM (event listeners) ao elemento. Isso pode ser usado para reagir a eventos como cliques, entradas de teclado, etc.
+Exemplo:
+html
+Copiar código
+<button v-on:click="clicarBotao">Clique aqui</button>
+<!-- Ou simplesmente @click="clicarBotao" -->
+7. v-show
+O que faz: Mostra ou esconde um elemento com base em uma expressão booleana, mas diferente de v-if, ele não remove o elemento do DOM; apenas ajusta o estilo display.
+Exemplo:
+html
+Copiar código
+<p v-show="mostrarTexto">Este texto aparece ou desaparece sem sair do DOM</p>
+8. v-pre
+O que faz: Impede que o Vue faça o processamento dos elementos dentro da tag. Isso é útil quando você não quer que uma parte do DOM seja observada.
+Exemplo:
+html
+Copiar código
+<div v-pre>{{ mensagem }}</div>
+Aqui, o Vue não tentará renderizar {{ mensagem }} como uma interpolação.
+9. v-cloak
+O que faz: Utilizado para esconder elementos até que o Vue esteja completamente inicializado, prevenindo que os templates com interpolação sejam visíveis durante o carregamento.
+Exemplo:
+html
+Copiar código
+<p v-cloak>{{ textoCloak }}</p>
+10. v-once
+O que faz: Faz com que um elemento seja renderizado uma vez e nunca mais seja re-renderizado, mesmo que os dados mudem.
+Exemplo:
+html
+Copiar código
+<p v-once>{{ mensagem }}</p>
+Essas são algumas das funções mais usadas no Vue.js. Cada uma delas oferece maneiras diferentes de interagir e manipular o DOM de forma eficiente e reativa.
